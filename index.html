@@ -1,27 +1,31 @@
 <style>
-    body{ 
-  background-image: url(dancing.gif);
-  background-size: cover;
-  background-attachment: fixed;
-  z-index: 0
+  body {
+    background-image: url(dancing.gif);
+    background-size: cover;
+    background-attachment: fixed;
+    z-index: 0
   }
+
   .hours {
-   text-align: right; 
-    font-size: 55px; 
+    text-align: right;
+    font-size: 55px;
     position: relative;
   }
-  .hours::before { 
-  content: "t-minus";
-  font-size: 35px; 
-  transform: skew(10deg);
-  display: inline-block;
+
+  .hours::before {
+    content: "t-minus";
+    font-size: 35px;
+    transform: skew(10deg);
+    display: inline-block;
   }
-  .hours::after { 
-  content: "hrs till mastery";
-  font-size: 35px; 
-  transform: skew(-10deg);
-  display: inline-block;
+
+  .hours::after {
+    content: "hrs till mastery";
+    font-size: 35px;
+    transform: skew(-10deg);
+    display: inline-block;
   }
+
   .title {
     font-size: 150px;
     position: absolute;
@@ -64,67 +68,70 @@
     height: 300px;
     z-index: -3;
   }
-  .basstext{
-   position: absolute; 
-   top: 650px;
-   left: 500px;
-   font-size: 26px;
-   max-width: 99px;
-   text-align: right;
-   transform: skew(-10deg);
+
+  .basstext {
+    position: absolute;
+    top: 650px;
+    left: 500px;
+    font-size: 26px;
+    max-width: 99px;
+    text-align: right;
+    transform: skew(-10deg);
   }
-  .vinyl{ 
-  position: absolute; 
-  top: 900px; 
-  width: 250px;
-  height: 250px; 
-  clip-path: circle(50% at 50% 50%);
+
+  .vinyl {
+    position: absolute;
+    top: 900px;
+    width: 250px;
+    height: 250px;
+    clip-path: circle(50% at 50% 50%);
   }
-  .vinyltext{
-   position: absolute; 
-   top: 950px;
-   left: 500px;
-   font-size: 26px;
-   max-width: 99px;
-   text-align: right;
-   transform: skew(-10deg);
+
+  .vinyltext {
+    position: absolute;
+    top: 950px;
+    left: 500px;
+    font-size: 26px;
+    max-width: 99px;
+    text-align: right;
+    transform: skew(-10deg);
   }
-  .polaroid{
+
+  .polaroid {
     width: 200px;
-    height:200px; 
-    position: absolute; 
-    top: 1250px; 
+    height: 200px;
+    position: absolute;
+    top: 1250px;
     left: 50px;
   }
-  
-  .polaroidtext{
-   position: absolute; 
-   top: 1300px;
-   left: 500px;
-   font-size: 26px;
-   max-width: 99px;
-   text-align: right;
-   transform: skew(-10deg);
+
+  .polaroidtext {
+    position: absolute;
+    top: 1300px;
+    left: 500px;
+    font-size: 26px;
+    max-width: 99px;
+    text-align: right;
+    transform: skew(-10deg);
   }
-  
-  .tameimapala{
-    position: absolute; 
-    top: 1500px; 
-    width: 320px; 
-    height: 320px; 
-    left: -20px; 
+
+  .tameimapala {
+    position: absolute;
+    top: 1500px;
+    width: 320px;
+    height: 320px;
+    left: -20px;
   }
-  
-  .tame{
-   position: absolute; 
-   top: 1600px;
-   left: 500px;
-   font-size: 26px;
-   max-width: 99px;
-   text-align: right;
-   transform: skew(-10deg);
+
+  .tame {
+    position: absolute;
+    top: 1600px;
+    left: 500px;
+    font-size: 26px;
+    max-width: 99px;
+    text-align: right;
+    transform: skew(-10deg);
   }
-  
 </style>
 <h2 class="hours">
   10,000
@@ -141,23 +148,40 @@
 </p>
 <img src="blackmagic.jpeg" alt="vinyl" class="vinyl">
 <p class="vinyltext">
- <a href=https://open.spotify.com/track/1hHAS9HhI21PbFwSry5V2f>
- spotify song of the week 
-</a>
+  <a href=https://open.spotify.com/track/1hHAS9HhI21PbFwSry5V2f>
+    spotify song of the week
+  </a>
   <br> ♪♪
 </p>
 <img src="polaroid.jpg" alt="polaroid of guitar" class="polaroid">
 <p class="polaroidtext">
-  <a href=https://swnjama.github.io/goals-page/>
-  goals + timeline 
-</a>
+  <a href=https://swnjama.github.io/goals-page />
+  goals + timeline
+  </a>
   <br> ♪♪
 </p>
 <img src="tameimpalanew.png" alt="tame impala" class="tameimapala">
 <p class="tame">
-   <a href=https://swnjama.github.io/y_da_bass_yg/>
-     y da bass yg ? </a> <br> ♪♪
+  <a href=https://swnjama.github.io/y_da_bass_yg />
+  y da bass yg ? </a> <br> ♪♪
 </p>
+<audio src="semibassically.mp3" class="recording"></audio>
 
 
+<script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library/build/nn.min.js"></script>
+<script>
+  /* global nn */
 
+  function startSound() {
+    nn.get('.recording').currentTime = 0
+    nn.get('.recording').play()
+  }
+
+  function stopSound() {
+    nn.get('.recording').pause()
+  }
+
+
+  nn.get('.bass').on('mouseover', startSound)
+  nn.get('.bass').on('mouseout', stopSound)
+</script>
